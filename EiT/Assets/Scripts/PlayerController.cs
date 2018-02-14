@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
-
     public int speed = 3;
+    //public GameObject playerCamera;
 
     // Use this for initialization
     void Start () {
         Vector3 position = transform.position;
+        //playerCamera = GameObject.Find("Main Camera");
         position.y += 10;
         transform.position = position;
     }
@@ -17,16 +18,12 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
         Vector3 position = transform.position;
 
-        bool touchPad = Input.GetMouseButton(0);
-        if (touchPad)
-        {
-            position.x += Time.deltaTime * speed;
+        if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger)) {
+            position.x += 3 * Time.deltaTime;
         }
 
-        if (OVRInput.Get(OVRInput.Button.Any))
-        {
-            position.x += Time.deltaTime * speed;
-        }
+        position.x += 1 * Time.deltaTime;
+        
         transform.position = position;
     }
 }
