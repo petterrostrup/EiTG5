@@ -8,14 +8,22 @@ public class PlayerController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
-	}
+        Vector3 position = transform.position;
+        position.y += 10;
+        transform.position = position;
+    }
 	
 	// Update is called once per frame
 	void Update () {
         Vector3 position = transform.position;
 
-        if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
+        bool touchPad = Input.GetMouseButton(0);
+        if (touchPad)
+        {
+            position.x += Time.deltaTime * speed;
+        }
+
+        if (OVRInput.Get(OVRInput.Button.Any))
         {
             position.x += Time.deltaTime * speed;
         }
