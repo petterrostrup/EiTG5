@@ -771,7 +771,7 @@ MonoBehaviour:
   m_ClickedMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
   m_DoubleClickedMaterial: {fileID: 2100000, guid: 6c24bafebfdd8d5409c9b756aad7b191,
     type: 2}
-  m_InteractiveItem: {fileID: 0}
+  m_InteractiveItem: {fileID: 1401692614}
   m_Renderer: {fileID: 1401692610}
 --- !u!4 &1438692703 stripped
 Transform:
@@ -789,6 +789,7 @@ GameObject:
   - component: {fileID: 1590417397}
   - component: {fileID: 1590417396}
   - component: {fileID: 1590417400}
+  - component: {fileID: 1590417401}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -878,8 +879,19 @@ MonoBehaviour:
   m_ClickedMaterial: {fileID: 2100000, guid: bb5b02dca4e40024a8985968dcbb168b, type: 2}
   m_DoubleClickedMaterial: {fileID: 2100000, guid: 6c24bafebfdd8d5409c9b756aad7b191,
     type: 2}
-  m_InteractiveItem: {fileID: 0}
+  m_InteractiveItem: {fileID: 1590417401}
   m_Renderer: {fileID: 1590417396}
+--- !u!114 &1590417401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1590417395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fea6f8eea666334aaf9869ad8f7bcda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1738882158
 GameObject:
   m_ObjectHideFlags: 0
