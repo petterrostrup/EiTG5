@@ -671,6 +671,7 @@ GameObject:
   - component: {fileID: 1401692610}
   - component: {fileID: 1401692615}
   - component: {fileID: 1401692614}
+  - component: {fileID: 1401692616}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -773,6 +774,18 @@ MonoBehaviour:
     type: 2}
   m_InteractiveItem: {fileID: 1401692614}
   m_Renderer: {fileID: 1401692610}
+--- !u!114 &1401692616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1401692609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 074bcc9e5c3cd67419decec884e2fb50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractiveItem: {fileID: 1401692614}
 --- !u!4 &1438692703 stripped
 Transform:
   m_PrefabParentObject: {fileID: 488160, guid: d9809c5e8418bb047bf2c8ba1d1a2cec, type: 2}

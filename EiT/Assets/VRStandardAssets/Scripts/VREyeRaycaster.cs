@@ -58,6 +58,7 @@ namespace VRStandardAssets.Utils
         
         private VRInteractiveItem m_CurrentInteractible;                //The current interactive item
         private VRInteractiveItem m_LastInteractible;                   //The last interactive item
+        public Vector3 m_rayHitPos = new Vector3(0,2,0);
 
 
         // Utility for other classes to get the current interactive item
@@ -89,7 +90,6 @@ namespace VRStandardAssets.Utils
         {
             EyeRaycast();
         }
-
       
         private void EyeRaycast()
         {
@@ -124,7 +124,7 @@ namespace VRStandardAssets.Utils
 
                 // Create new ray
                 ray = new Ray(worldStartPoint, worldEndPoint - worldStartPoint);
-            }
+    }
 
 
 
@@ -150,7 +150,10 @@ namespace VRStandardAssets.Utils
 
                 // Something was hit, set at the hit position.
                 if (m_Reticle)
+                {
                     m_Reticle.SetPosition(hit);
+                    m_rayHitPos = hit.point;
+                }
 
                 if (OnRaycasthit != null)
                     OnRaycasthit(hit);
