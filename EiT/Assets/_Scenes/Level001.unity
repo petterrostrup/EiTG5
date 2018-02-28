@@ -851,15 +851,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 322841380e45b204ab335d46054988bd, type: 2}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 322841380e45b204ab335d46054988bd, type: 2}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 322841380e45b204ab335d46054988bd, type: 2}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 322841380e45b204ab335d46054988bd, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -903,6 +903,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractiveItem: {fileID: 548095892}
+  usagePanel: {fileID: 947983116}
   usesPower: 0
   usesWater: 0
   powerConsumptions: 
@@ -1041,7 +1042,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 322841380e45b204ab335d46054988bd, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0.9336004
+      value: 0.9336005
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 322841380e45b204ab335d46054988bd, type: 2}
       propertyPath: m_LocalRotation.z
@@ -1049,7 +1050,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 322841380e45b204ab335d46054988bd, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.35831577
+      value: 0.3583158
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 322841380e45b204ab335d46054988bd, type: 2}
       propertyPath: m_RootOrder
@@ -1057,15 +1058,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 322841380e45b204ab335d46054988bd, type: 2}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 322841380e45b204ab335d46054988bd, type: 2}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 322841380e45b204ab335d46054988bd, type: 2}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 322841380e45b204ab335d46054988bd, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -1109,9 +1110,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractiveItem: {fileID: 831640614}
-  usesPower: 0
+  usagePanel: {fileID: 947983116}
+  usesPower: 1
   usesWater: 0
-  powerConsumptions: 
+  powerConsumptions: 90010000
   waterConsumptions: 
   usagePanelLocation: 0
 --- !u!65 &831640616
@@ -1247,7 +1249,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -9.81153, y: 5.5}
+  m_AnchoredPosition: {x: -1.25, y: 10.99}
   m_SizeDelta: {x: 4, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &957230307
@@ -1528,7 +1530,7 @@ GameObject:
   - component: {fileID: 1251650261}
   - component: {fileID: 1251650260}
   m_Layer: 5
-  m_Name: MomentanforbrukTekst
+  m_Name: UsageText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1584,15 +1586,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Momentanforbruk: 400W
-
-    Momentanforbruk: 400W
-
-    Momentanforbruk: 400W
-
-    Momentanforbruk: 400W
-
-    Momentanforbruk: 400W'
+  m_Text: 
 --- !u!222 &1251650261
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1627,10 +1621,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractiveItem: {fileID: 1304504734}
-  usesPower: 0
-  usesWater: 0
-  powerConsumptions: 
-  waterConsumptions: 
+  usagePanel: {fileID: 947983116}
+  usesPower: 1
+  usesWater: 1
+  powerConsumptions: a0000000
+  waterConsumptions: 0a000000
   usagePanelLocation: 0
 --- !u!4 &1304504733 stripped
 Transform:
@@ -1910,10 +1905,10 @@ RectTransform:
   m_Father: {fileID: 947983120}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 2, y: -1}
+  m_SizeDelta: {x: 4, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1548269634
 MonoBehaviour:
@@ -2382,15 +2377,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 322841380e45b204ab335d46054988bd, type: 2}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 322841380e45b204ab335d46054988bd, type: 2}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 322841380e45b204ab335d46054988bd, type: 2}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 322841380e45b204ab335d46054988bd, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
