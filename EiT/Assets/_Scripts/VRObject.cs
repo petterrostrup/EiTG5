@@ -11,6 +11,7 @@ public class VRObject : MonoBehaviour {
     [SerializeField] private bool usesWater;
     [SerializeField] private int[] powerConsumptions;
     [SerializeField] private int[] waterConsumptions;
+    [SerializeField] private int usagePanelLocation;
 
     private void OnEnable()
     {
@@ -35,7 +36,13 @@ public class VRObject : MonoBehaviour {
     //Handle the Over event
     private void HandleOver()
     {
-        
+        GameObject usagePanel = GameObject.Find("Momentanforbruk");
+        Vector3 objectPos = m_InteractiveItem.transform.position;
+        Quaternion objectRot = m_InteractiveItem.transform.rotation;
+        objectPos.y += 2 + m_InteractiveItem.transform.localScale.y;
+
+        usagePanel.transform.position = objectPos;
+        usagePanel.transform.rotation = objectRot;
     }
 
     //Handle the Out event
