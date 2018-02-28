@@ -8,12 +8,13 @@ public class VRObject : MonoBehaviour {
 
     [SerializeField] private VRInteractiveItem m_InteractiveItem;
     [SerializeField] private GameObject usagePanel;
+    Vector3 usagePanelScale;
 
     [SerializeField] private bool usesPower;
     [SerializeField] private bool usesWater;
     [SerializeField] private int[] powerConsumptions;
     [SerializeField] private int[] waterConsumptions;
-    [SerializeField] private int usagePanelLocation;
+    [SerializeField] Vector3 usagePanelPosition;
 
     private void OnEnable()
     {
@@ -38,27 +39,31 @@ public class VRObject : MonoBehaviour {
     //Handle the Over event
     private void HandleOver()
     {
-        usagePanel.SetActive(true);
-        Vector3 objectPos = m_InteractiveItem.transform.position;
-        Quaternion objectRot = m_InteractiveItem.transform.rotation;
-        objectPos.y += 2 + m_InteractiveItem.transform.localScale.y;
-
-        usagePanel.transform.position = objectPos;
-        usagePanel.transform.rotation = objectRot;
-
-        Transform child = usagePanel.transform.Find("UsageText");
-        Text t = child.GetComponent<Text>();
-        t.text = "";
-
-        if (usesPower)
+        if (usesPower || usesWater)
         {
-            t.text = t.text + "Power consumption:  " + powerConsumptions[0].ToString() + "W";
-        }
-        if (usesWater)
-        {
-            t.text = t.text + "\nWater consumption: " + waterConsumptions[0].ToString() + "L/h";
-        }
+            usagePanel.SetActive(true);
 
+            Vector3 objectPos = m_InteractiveItem.transform.position;
+            Quaternion objectRot = m_InteractiveItem.transform.rotation;
+
+            objectPos.y += 1.3f + m_InteractiveItem.transform.localScale.y;
+
+            usagePanel.transform.position = objectPos;
+            usagePanel.transform.rotation = objectRot;
+
+            Transform child = usagePanel.transform.Find("UsageText");
+            Text t = child.GetComponent<Text>();
+            t.text = "";
+
+            if (usesPower)
+            {
+                t.text = t.text + "Power consumption:  " + powerConsumptions[0].ToString() + "W";
+            }
+            if (usesWater)
+            {
+                t.text = t.text + "\nWater consumption: " + waterConsumptions[0].ToString() + "L/h";
+            }
+        }
     }
 
     //Handle the Out event
