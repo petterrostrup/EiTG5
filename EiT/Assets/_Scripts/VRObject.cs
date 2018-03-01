@@ -7,6 +7,7 @@ using VRStandardAssets.Utils;
 public class VRObject : MonoBehaviour {
 
     [SerializeField] private VRInteractiveItem m_InteractiveItem;
+    Renderer rend;
     [SerializeField] private GameObject usagePanel;
     Vector3 usagePanelScale;
 
@@ -41,12 +42,13 @@ public class VRObject : MonoBehaviour {
     {
         if (usesPower || usesWater)
         {
+            //Display the information panel for the object
             usagePanel.SetActive(true);
 
-            Vector3 objectPos = m_InteractiveItem.transform.position;
+            Vector3 objectPos = rend.bounds.center;
             Quaternion objectRot = m_InteractiveItem.transform.rotation;
 
-            objectPos.y += 1.3f + m_InteractiveItem.transform.localScale.y;
+            objectPos.y += rend.bounds.extents.y + 0.3f;
 
             usagePanel.transform.position = objectPos;
             usagePanel.transform.rotation = objectRot;
@@ -75,6 +77,7 @@ public class VRObject : MonoBehaviour {
     // Use this for initialization
     void Start () {
         usagePanel.gameObject.SetActive(false);
+        rend = m_InteractiveItem.GetComponent<Renderer>();
     }
 	
 	// Update is called once per frame
