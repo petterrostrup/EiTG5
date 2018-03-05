@@ -6,16 +6,16 @@ using VRStandardAssets.Utils;
 
 public class VRObject : MonoBehaviour {
 
-    [SerializeField] private VRInteractiveItem m_InteractiveItem;
+    private VRInteractiveItem m_InteractiveItem;
     Renderer rend;
     [SerializeField] private GameObject usagePanel;
     Vector3 usagePanelScale;
 
-    [SerializeField] private bool usesPower;
-    [SerializeField] private bool usesWater;
-    [SerializeField] private int[] powerConsumptions;
-    [SerializeField] private int[] waterConsumptions;
-    [SerializeField] Vector3 usagePanelPosition;
+    public bool usesPower;
+    public bool usesWater;
+    public int[] powerConsumptions;
+    public int[] waterConsumptions;
+    public Vector3 usagePanelPosition;
 
     private void OnEnable()
     {
@@ -78,6 +78,10 @@ public class VRObject : MonoBehaviour {
     void Start () {
         usagePanel.gameObject.SetActive(false);
         rend = m_InteractiveItem.GetComponent<Renderer>();
+    }
+    void Awake ()
+    {
+        m_InteractiveItem = gameObject.GetComponent<VRInteractiveItem>();
     }
 	
 	// Update is called once per frame
