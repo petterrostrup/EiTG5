@@ -15,6 +15,12 @@ public class ConsLights : ConsObj {
     public Light[] attachedLights;
     private float[] lightIntensities;
 
+    // Change of state 
+    public override void SetType()
+    {
+        base.SetType();
+    }
+
     // Event handlers
     public override void HandleOver()
     {

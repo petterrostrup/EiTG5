@@ -6,7 +6,8 @@ using VRStandardAssets.Utils;
 public class ConsObj : MonoBehaviour {
     // Component initialized in Awake
     private VRInteractiveItem m_InterItem;
-
+    private GameObject consPanel;
+ 
     // Current consumption of object
     private int currentPowerCons = 0;
     private int currentWaterCons = 0;
@@ -22,8 +23,13 @@ public class ConsObj : MonoBehaviour {
         SetCurrentWaterCons(waterCons);
     }
 
-    // Event handlers (can be overridden by the derived classes)
-    private void OnEnable()
+    public virtual void SetType()
+    {
+        
+    }
+
+        // Event handlers (can be overridden by the derived classes)
+        private void OnEnable()
     {
         m_InterItem.OnClick += HandleClick;
         m_InterItem.OnOver += HandleOver;
@@ -37,7 +43,9 @@ public class ConsObj : MonoBehaviour {
         m_InterItem.OnOut -= HandleOut;
     }
 
-    public virtual void HandleOver(){ }
+    public virtual void HandleOver(){
+        consPanel.transform.SetParent(gameObject.transform, true);
+    }
     public virtual void HandleOut() { }
     public virtual void HandleClick() { }
 
@@ -45,6 +53,7 @@ public class ConsObj : MonoBehaviour {
     public virtual void Awake()
     {
         m_InterItem = gameObject.GetComponent<VRInteractiveItem>();
+        consPanel = GameObject.Find("ConsPanel");
     }
 
     void Start () {
