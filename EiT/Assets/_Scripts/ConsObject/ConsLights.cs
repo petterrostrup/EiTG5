@@ -30,6 +30,15 @@ public class ConsLights : ConsObj {
         SetCurrentPowerCons(powerConsArray[(int)currentMode, (int)currentType]);
     }
 
+    public override void SetMode(int modeIndex)
+    {
+        base.SetType(modeIndex);
+        currentMode = (Mode)modeIndex;
+        SetCurrentPowerCons(powerConsArray[(int)currentMode, (int)currentType]);
+        if ((Mode)modeIndex == Mode.On) { TurnOn(); }
+        else if ((Mode)modeIndex == Mode.Off) { TurnOff(); }
+    }
+
     // Setting up ConsPanel
     public override void MoveConsPanel()
     {
@@ -41,6 +50,18 @@ public class ConsLights : ConsObj {
         for (int i = 0; i < buttons.Length; i++)
         {
             buttons[i].GetComponentInChildren<Text>().text = ((Type)i).ToString();
+            if (i == (int)currentType)
+            {
+                buttons[i].SetSelected();
+            }
+        }
+
+        GameObject UIButtonsTwo = consPanel.GetComponent<ConsPanel>().UIButtonsTwo;
+        UIButtonsTwo.SetActive(true);
+        buttons = UIButtonsTwo.GetComponentsInChildren<UIButton>();
+        for (int i = 0; i < buttons.Length; i++)
+        {
+            buttons[i].GetComponentInChildren<Text>().text = ((Mode)i).ToString();
             if (i == (int)currentType)
             {
                 buttons[i].SetSelected();

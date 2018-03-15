@@ -55,7 +55,14 @@ public class UIButton : MonoBehaviour {
 
         int buttonIndex = gameObject.transform.GetSiblingIndex();
 
-        consPanel.transform.parent.GetComponent<ConsObj>().SetType(buttonIndex);
+        if (gameObject.transform.parent.GetComponent<UIButtons>().GetChoise() == "mode")
+        {
+            consPanel.transform.parent.GetComponent<ConsObj>().SetMode(buttonIndex);
+        }
+        else if (gameObject.transform.parent.GetComponent<UIButtons>().GetChoise() == "type")
+        {
+            consPanel.transform.parent.GetComponent<ConsObj>().SetType(buttonIndex);
+        }
     }
 
     //Handle the Over event

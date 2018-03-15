@@ -7,6 +7,8 @@ public class ConsPanel : MonoBehaviour {
     // Initialization of subelements
     public GameObject UICons;
     public GameObject UISlider;
+    public GameObject UIButtonsTwo;
+    public GameObject UIButtonsThree;
     public GameObject UIButtonsFour;
 
     // Utility functions
@@ -21,6 +23,8 @@ public class ConsPanel : MonoBehaviour {
             }
         }
         UISlider.SetActive(false);
+        UIButtonsTwo.SetActive(false);
+        UIButtonsThree.SetActive(false);
         UIButtonsFour.SetActive(false);
     }
 

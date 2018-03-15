@@ -439,6 +439,8 @@ GameObject:
   - component: {fileID: 128244040}
   - component: {fileID: 128244039}
   - component: {fileID: 128244045}
+  - component: {fileID: 128244047}
+  - component: {fileID: 128244046}
   m_Layer: 5
   m_Name: ConsPanel
   m_TagString: Untagged
@@ -575,7 +577,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UICons: {fileID: 625687590}
   UISlider: {fileID: 1205908591}
+  UIButtonsTwo: {fileID: 1694805208}
+  UIButtonsThree: {fileID: 1170896585}
   UIButtonsFour: {fileID: 1057734590}
+--- !u!65 &128244046
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 128244038}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 120, y: 129.5, z: 0.001}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &128244047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 128244038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fea6f8eea666334aaf9869ad8f7bcda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &155367951
 GameObject:
   m_ObjectHideFlags: 0
@@ -5004,6 +5031,7 @@ GameObject:
   - component: {fileID: 1057734594}
   - component: {fileID: 1057734593}
   - component: {fileID: 1057734592}
+  - component: {fileID: 1057734596}
   m_Layer: 5
   m_Name: UIButtonsFour
   m_TagString: Untagged
@@ -5101,6 +5129,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1057734590}
+--- !u!114 &1057734596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1057734590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b35f9032f4a5f4d9fa6bae67e56309, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  choise: 1
 --- !u!1 &1071817155
 GameObject:
   m_ObjectHideFlags: 0
@@ -5614,6 +5654,7 @@ GameObject:
   - component: {fileID: 1170896589}
   - component: {fileID: 1170896588}
   - component: {fileID: 1170896587}
+  - component: {fileID: 1170896591}
   m_Layer: 5
   m_Name: UIButtonsThree
   m_TagString: Untagged
@@ -5710,6 +5751,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1170896585}
+--- !u!114 &1170896591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1170896585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b35f9032f4a5f4d9fa6bae67e56309, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  choise: 0
 --- !u!1 &1181634184
 GameObject:
   m_ObjectHideFlags: 0
@@ -8376,6 +8429,7 @@ GameObject:
   - component: {fileID: 1694805212}
   - component: {fileID: 1694805211}
   - component: {fileID: 1694805210}
+  - component: {fileID: 1694805214}
   m_Layer: 5
   m_Name: UIButtonsTwo
   m_TagString: Untagged
@@ -8471,6 +8525,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1694805208}
+--- !u!114 &1694805214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1694805208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b35f9032f4a5f4d9fa6bae67e56309, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  choise: 0
 --- !u!1 &1712538128
 GameObject:
   m_ObjectHideFlags: 0

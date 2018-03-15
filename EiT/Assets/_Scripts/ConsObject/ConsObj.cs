@@ -43,17 +43,22 @@ public class ConsObj : MonoBehaviour {
         text.text = "";
         if (currentPowerCons != 0)
         {
-            text.text += "Strømforbruk: " + currentPowerCons.ToString();
+            text.text += "Strømforbruk: " + currentPowerCons.ToString() + " W";
         }
         if (currentWaterCons != 0)
         {
-            text.text += "Vannforbruk: " + currentWaterCons.ToString();
+            text.text += "Vannforbruk: " + currentWaterCons.ToString() + " l/t";
         }
     }
 
     public virtual void SetType(int typeIndex)
     {
         
+    }
+
+    public virtual void SetMode(int modeIndex)
+    {
+
     }
 
     public virtual void MoveConsPanel()
