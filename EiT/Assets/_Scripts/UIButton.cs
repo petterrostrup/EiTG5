@@ -49,7 +49,9 @@ public class UIButton : MonoBehaviour {
         }
         gameObject.GetComponent<Image>().color = selectedColor;
 
-        consPanel.transform.parent.GetComponent<ConsObj>().SetType();
+        int buttonIndex = gameObject.transform.GetSiblingIndex();
+
+        consPanel.transform.parent.GetComponent<ConsObj>().SetType(buttonIndex);
     }
 
     //Handle the Over event

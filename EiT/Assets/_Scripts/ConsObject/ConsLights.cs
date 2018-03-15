@@ -8,50 +8,36 @@ public class ConsLights : ConsObj {
     private enum Type { LED, Halogen, CFL, Incandescent}
     private Mode currentMode = Mode.On;
     private Type currentType = Type.Incandescent;
-    int[,] powerConsArray = new int[2, 4] { { 7, 46, 12, 60 }, { 0, 0, 0, 0 } };
-    int[,] waterConsArray = new int[2, 4] { { 0, 0, 0, 0 }, { 0, 0, 0, 0 } };
+    int[,] powerConsArray = new int[2, 4] { 
+        { 7, 46, 12, 60 },  //On
+        { 0, 0, 0, 0 }     //Off
+        };
+    int[,] waterConsArray = new int[2, 4] { 
+        { 0, 0, 0, 0 },     //On
+        { 0, 0, 0, 0 }      //Off
+        };
 
     // Setup lights
     public Light[] attachedLights;
     private float[] lightIntensities;
 
     // Change of state 
-    public override void SetType()
+    public override void SetType(int typeIndex)
     {
-        base.SetType();
+        base.SetType(typeIndex);
+        currentMode = (Mode)typeIndex;
+        SetCurrentPowerCons(powerConsArray[(int)currentMode, (int)currentType]);
     }
 
     // Event handlers
     public override void HandleOver()
     {
         base.HandleOver();
-
-        // Just to test. Turs on and changes type every time we look at it.
-        switch (currentType)
-        {
-            case Type.LED:
-                currentType = Type.Halogen;
-                break;
-            case Type.Halogen:
-                currentType = Type.CFL;
-                break;
-            case Type.CFL:
-                currentType = Type.Incandescent;
-                break;
-            case Type.Incandescent:
-                currentType = Type.LED;
-                break;
-            default:
-                break;
-        }
-
-        TurnOn();
     }
 
     public override void HandleOut()
     {
         base.HandleOut();
-        TurnOff();
     }
 
     public override void HandleClick()
