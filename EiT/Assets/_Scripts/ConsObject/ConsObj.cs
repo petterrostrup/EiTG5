@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using VRStandardAssets.Utils;
+using UnityEngine.UI;
 
 public class ConsObj : MonoBehaviour {
     // Component initialized in Awake
     private VRInteractiveItem m_InterItem;
-    private GameObject consPanel;
+    [System.NonSerialized] public GameObject consPanel;
     Renderer objectRend;
 
     // Placement of ConsPanel relative to object
@@ -21,12 +22,33 @@ public class ConsObj : MonoBehaviour {
     // Utility functions
     public int GetCurrentPowerCons() { return currentPowerCons; }
     public int GetCurrentWaterCons() { return currentWaterCons; }
-    public void SetCurrentPowerCons(int powerCons) { currentPowerCons = powerCons; }
-    public void SetCurrentWaterCons(int waterCons) { currentWaterCons = waterCons; }
+    public void SetCurrentPowerCons(int powerCons) {
+        currentPowerCons = powerCons;
+        UpdateUICons();
+    }
+    public void SetCurrentWaterCons(int waterCons) {
+        currentWaterCons = waterCons;
+        UpdateUICons();
+    }
     public void SetCurrentCons(int powerCons, int waterCons)
     {
         SetCurrentPowerCons(powerCons);
         SetCurrentWaterCons(waterCons);
+        UpdateUICons();
+    }
+
+    private void UpdateUICons ()
+    {
+        Text text = consPanel.transform.Find("UICons").transform.Find("Text").GetComponent<Text>();
+        text.text = "";
+        if (currentPowerCons != 0)
+        {
+            text.text += "Strømforbruk: " + currentPowerCons.ToString();
+        }
+        if (currentWaterCons != 0)
+        {
+            text.text += "Vannforbruk: " + currentWaterCons.ToString();
+        }
     }
 
     public virtual void SetType(int typeIndex)
@@ -51,7 +73,7 @@ public class ConsObj : MonoBehaviour {
         float projectionAlongLeft = consPanel.transform.right.normalized.x * objectRend.bounds.extents.x + consPanel.transform.right.normalized.z * objectRend.bounds.extents.z; ;
         float projectionLeftSignum = Mathf.Sign(projectionAlongLeft);
 
-        switch (consPanelLoc)
+        switch (consPanelLoc) //Place panel based on position selected in Unity UI
         {
             case ConsPanelLoc.Top:
                 newConsPanelPos.y += objectRend.bounds.extents.y + consPanelHeight/2 + padding;
@@ -86,8 +108,14 @@ public class ConsObj : MonoBehaviour {
         consPanel.transform.rotation = objectRot;
         if (!flipConsPanel)
         {
-            consPanel.transform.rotation *= Quaternion.Euler(0, 180, 0);
+            consPanel.transform.rotation *= Quaternion.Euler(0, 180, 0); //Rotating 180 degrees
         }
+        consPanel.GetComponent<ConsPanel>().ResetAll();
+    }
+
+    public void SetupConsPanelCollider()
+    {
+        consPanel.GetComponent<BoxCollider>().size = new Vector3(consPanel.GetComponent<RectTransform>().rect.width, consPanel.GetComponent<RectTransform>().rect.height, 0.0001f);
     }
 
     // Event handlers (can be overridden by the derived classes)
@@ -127,6 +155,6 @@ public class ConsObj : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 }

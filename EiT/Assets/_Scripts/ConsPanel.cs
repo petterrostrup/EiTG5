@@ -7,12 +7,21 @@ public class ConsPanel : MonoBehaviour {
     // Initialization of subelements
     public GameObject UICons;
     public GameObject UISlider;
-    public GameObject UIUIButtonsFour;
+    public GameObject UIButtonsFour;
 
     // Utility functions
-    public void Reset ()
+    public void ResetAll ()
     {
-
+        UIButton[] children = gameObject.GetComponentsInChildren<UIButton>();
+        if (children != null)
+        {
+            foreach (UIButton button in children)
+            {
+                button.SetUnselected();
+            }
+        }
+        UISlider.SetActive(false);
+        UIButtonsFour.SetActive(false);
     }
 
     // Use this for initialization

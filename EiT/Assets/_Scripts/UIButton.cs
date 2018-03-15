@@ -16,6 +16,10 @@ public class UIButton : MonoBehaviour {
     private Color32 highlightedColor = new Color32(0, 255, 255, 255);
     public bool isSelected = false;
 
+    public void SetUnselected() { gameObject.GetComponent<Image>().color = unselectedColor; }
+    public void SetSelected() { gameObject.GetComponent<Image>().color = selectedColor; }
+    public void SetHighLighted() { gameObject.GetComponent<Image>().color = highlightedColor; }
+
     public GameObject consPanel;
 
     public void SetButtontext(string buttonText){
@@ -57,7 +61,6 @@ public class UIButton : MonoBehaviour {
     //Handle the Over event
     private void HandleOver() {
         gameObject.GetComponent<Image>().color = highlightedColor;
-        int siblingIndex = gameObject.transform.GetSiblingIndex();
     }
 
     //Handle the Out event

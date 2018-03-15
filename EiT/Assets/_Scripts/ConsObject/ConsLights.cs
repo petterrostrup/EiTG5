@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ConsLights : ConsObj {
     // Setup relevant properties
@@ -25,8 +26,28 @@ public class ConsLights : ConsObj {
     public override void SetType(int typeIndex)
     {
         base.SetType(typeIndex);
-        currentMode = (Mode)typeIndex;
+        currentType = (Type)typeIndex;
         SetCurrentPowerCons(powerConsArray[(int)currentMode, (int)currentType]);
+    }
+
+    // Setting up ConsPanel
+    public override void MoveConsPanel()
+    {
+        base.MoveConsPanel();
+
+        GameObject UIButtonsFour = consPanel.GetComponent<ConsPanel>().UIButtonsFour;
+        UIButtonsFour.SetActive(true);
+        UIButton[] buttons = UIButtonsFour.GetComponentsInChildren<UIButton>();
+        for (int i = 0; i < buttons.Length; i++)
+        {
+            buttons[i].GetComponentInChildren<Text>().text = ((Type)i).ToString();
+            if (i == (int)currentType)
+            {
+                buttons[i].SetSelected();
+            }
+        }
+
+        SetupConsPanelCollider();
     }
 
     // Event handlers
