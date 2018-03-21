@@ -1,0 +1,284 @@
+fileFormatVersion: 2
+guid: bb21b9c582095fc4c8f2dbef92540690
+timeCreated: 1521643388
+licenseType: Free
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d0000002e0000002f000000300000003100000032000000330000003400000035000000360000003700000038000000390000003a0000003b0000003c0000003d0000003e0000003f00000040000000410000004200000043000000440000004500000046000000490000004a000000
+  assetHash:
+    serializedVersion: 2
+    Hash: 1664deb6ddb1c9344c32a7ad328a0454
+  longitude: -105.242139
+  latitude: 40.018309
+  northCorrection: -0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: -3.73208, y: 13.051004, z: 6.1014442}
+      lookAt: {x: -12.9673395, y: 8.026886, z: 3.7569125}
+      up: {x: -0.4520797, y: 0.88456327, z: -0.11476833}
+      fov: 35
+      aspectRatio: 0
+      orthoSize: 1
+      isPerspective: 1
+    scenes: []
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Component#11
+    100002: Component#11 1
+    100004: Component#11 2
+    100006: Component#11 3
+    100008: Component#12
+    100010: Component#12 1
+    100012: Component#12 2
+    100014: Component#12 3
+    100016: Component#13
+    100018: Component#13 1
+    100020: Component#15
+    100022: Component#15 1
+    100024: Component#15 2
+    100026: Component#15 3
+    100028: Component#16
+    100030: Component#16 1
+    100032: Component#16 2
+    100034: Component#16 3
+    100036: Component#18
+    100038: Component#18 1
+    100040: Component#19
+    100042: Component#19 1
+    100044: Component#2
+    100046: Component#20
+    100048: Component#20 1
+    100050: Component#21
+    100052: Component#24
+    100054: Component#25
+    100056: Component#27
+    100058: Component#3
+    100060: Component#30
+    100062: Component#8
+    100064: Component#8 1
+    100066: Component#9
+    100068: Component#9 1
+    100070: GAME CARD
+    100072: GAME CARD 1
+    100074: //RootNode
+    400000: Component#11
+    400002: Component#11 1
+    400004: Component#11 2
+    400006: Component#11 3
+    400008: Component#12
+    400010: Component#12 1
+    400012: Component#12 2
+    400014: Component#12 3
+    400016: Component#13
+    400018: Component#13 1
+    400020: Component#15
+    400022: Component#15 1
+    400024: Component#15 2
+    400026: Component#15 3
+    400028: Component#16
+    400030: Component#16 1
+    400032: Component#16 2
+    400034: Component#16 3
+    400036: Component#18
+    400038: Component#18 1
+    400040: Component#19
+    400042: Component#19 1
+    400044: Component#2
+    400046: Component#20
+    400048: Component#20 1
+    400050: Component#21
+    400052: Component#24
+    400054: Component#25
+    400056: Component#27
+    400058: Component#3
+    400060: Component#30
+    400062: Component#8
+    400064: Component#8 1
+    400066: Component#9
+    400068: Component#9 1
+    400070: GAME CARD
+    400072: GAME CARD 1
+    400074: //RootNode
+    2100000: _defaultMat
+    2100002: '[Color M05]'
+    2100004: '[Color M06]'
+    2100006: '[Color M03]'
+    2100008: '[Color M01]'
+    2100010: '[Color M08]'
+    2100012: '[Color M04]'
+    2100014: '[Color M07]'
+    2100016: '[Color M09]'
+    2100018: '[Color H08]'
+    2100020: '[Color D03]'
+    2100022: '[Color D07]'
+    2100024: '[Color A07]'
+    2100026: '[Color F03]'
+    2300000: Component#11
+    2300002: Component#11 1
+    2300004: Component#11 2
+    2300006: Component#11 3
+    2300008: Component#12
+    2300010: Component#12 1
+    2300012: Component#12 2
+    2300014: Component#12 3
+    2300016: Component#13
+    2300018: Component#13 1
+    2300020: Component#15
+    2300022: Component#15 1
+    2300024: Component#15 2
+    2300026: Component#15 3
+    2300028: Component#16
+    2300030: Component#16 1
+    2300032: Component#16 2
+    2300034: Component#16 3
+    2300036: Component#19
+    2300038: Component#19 1
+    2300040: Component#2
+    2300042: Component#20
+    2300044: Component#20 1
+    2300046: Component#21
+    2300048: Component#24
+    2300050: Component#25
+    2300052: Component#27
+    2300054: Component#3
+    2300056: Component#30
+    2300058: Component#8
+    2300060: Component#8 1
+    2300062: Component#9
+    2300064: Component#9 1
+    2300066: GAME CARD
+    2300068: GAME CARD 1
+    3300000: Component#11
+    3300002: Component#11 1
+    3300004: Component#11 2
+    3300006: Component#11 3
+    3300008: Component#12
+    3300010: Component#12 1
+    3300012: Component#12 2
+    3300014: Component#12 3
+    3300016: Component#13
+    3300018: Component#13 1
+    3300020: Component#15
+    3300022: Component#15 1
+    3300024: Component#15 2
+    3300026: Component#15 3
+    3300028: Component#16
+    3300030: Component#16 1
+    3300032: Component#16 2
+    3300034: Component#16 3
+    3300036: Component#19
+    3300038: Component#19 1
+    3300040: Component#2
+    3300042: Component#20
+    3300044: Component#20 1
+    3300046: Component#21
+    3300048: Component#24
+    3300050: Component#25
+    3300052: Component#27
+    3300054: Component#3
+    3300056: Component#30
+    3300058: Component#8
+    3300060: Component#8 1
+    3300062: Component#9
+    3300064: Component#9 1
+    3300066: GAME CARD
+    3300068: GAME CARD 1
+    4300000: Mesh Component#20
+    4300002: Mesh Component#15
+    4300004: Mesh Component#16
+    4300006: Mesh Component#12
+    4300008: Mesh Component#13
+    4300010: Mesh Component#11
+    4300012: Mesh Component#19
+    4300014: Mesh Component#8
+    4300016: Mesh Component#9
+    4300018: Mesh Component#30
+    4300020: Mesh Component#27
+    4300022: Mesh GAME CARD
+    4300024: Mesh Component#25
+    4300026: Mesh Component#24
+    4300028: Mesh Component#21
+    4300030: Mesh Component#2
+    4300032: Mesh Component#3
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 0
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.0254
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
