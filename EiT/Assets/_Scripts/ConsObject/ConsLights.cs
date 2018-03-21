@@ -67,6 +67,10 @@ public class ConsLights : ConsObj {
             {
                 buttons[i].SetSelected();
             }
+            else
+            {
+                buttons[i].SetUnselected();
+            }
         }
 
         GameObject UIButtonsTwo = consPanel.GetComponent<ConsPanel>().UIButtonsTwo;
@@ -75,13 +79,18 @@ public class ConsLights : ConsObj {
         for (int i = 0; i < buttons.Length; i++)
         {
             buttons[i].GetComponentInChildren<Text>().text = ((Mode)i).ToString();
-            if (i == (int)currentType)
+            if (i == (int)currentMode)
             {
                 buttons[i].SetSelected();
+            }
+            else
+            {
+                buttons[i].SetUnselected();
             }
         }
 
         SetupConsPanelCollider();
+
     }
 
     // Event handlers
@@ -137,5 +146,11 @@ public class ConsLights : ConsObj {
             lightIntensities[i] = attachedLights[i].intensity;
         }
         house = GameObject.FindObjectOfType<House>();
+    }
+
+    // Used for initialization
+    public void Start()
+    {
+        SetCurrentPowerCons(powerConsArray[(int)currentMode, (int)currentType]);
     }
 }

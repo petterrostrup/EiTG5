@@ -16,8 +16,14 @@ public class UIButton : MonoBehaviour {
     private Color32 highlightedColor = new Color32(0, 255, 255, 255);
     public bool isSelected = false;
 
-    public void SetUnselected() { gameObject.GetComponent<Image>().color = unselectedColor; }
-    public void SetSelected() { gameObject.GetComponent<Image>().color = selectedColor; }
+    public void SetUnselected() {
+        gameObject.GetComponent<Image>().color = unselectedColor;
+        isSelected = false;
+    }
+    public void SetSelected() {
+        gameObject.GetComponent<Image>().color = selectedColor;
+        isSelected = true;
+    }
     public void SetHighLighted() { gameObject.GetComponent<Image>().color = highlightedColor; }
 
     public GameObject consPanel;

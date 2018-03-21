@@ -49,6 +49,7 @@ public class ConsObj : MonoBehaviour {
         {
             text.text += "Vannforbruk: " + currentWaterCons.ToString() + " l/t";
         }
+        GameObject.Find("ConsHUD").GetComponent<ConsHUD>().UpdateHUDCons();
     }
 
     public virtual void SetType(int typeIndex)
@@ -73,7 +74,7 @@ public class ConsObj : MonoBehaviour {
         float consPanelHeight = consPanelHeightPixels * consPanelScale;
         float consPanelWidth = consPanelWidthPixels * consPanelScale;
         float padding = 5 * consPanelScale;
-        float projectionAlongRight = Vector3.Dot(consPanel.transform.right.normalized, objectRend.bounds.extents);//consPanel.transform.right.normalized.x * objectRend.bounds.extents.x + consPanel.transform.right.normalized.z * objectRend.bounds.extents.z; ;
+        float projectionAlongRight = Vector3.Dot(consPanel.transform.right.normalized, objectRend.bounds.extents);
         float projectionRightSignum = Mathf.Sign(projectionAlongRight);
         float projectionAlongLeft = consPanel.transform.right.normalized.x * objectRend.bounds.extents.x + consPanel.transform.right.normalized.z * objectRend.bounds.extents.z; ;
         float projectionLeftSignum = Mathf.Sign(projectionAlongLeft);

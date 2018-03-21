@@ -23,7 +23,6 @@ public class House : MonoBehaviour {
     void Awake () {
         lamps = GameObject.FindObjectsOfType<ConsLights>();
         numLamps = lamps.Length;
-        Debug.Log(numLamps);
         lightStep = (int)Mathf.Floor((255 - 26) / 4);
 
         UpdateLight();

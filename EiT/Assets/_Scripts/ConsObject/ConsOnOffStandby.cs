@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ConsOnOff : ConsObj {
+public class ConsOnOffStandby : ConsObj {
 
-    private enum Mode { On, Off }
+    private enum Mode { On, Standby, Off }
     private Mode currentMode = Mode.On;
-    public int[] powerConsArray = new int[2] { 7,0 };
-    public int[] waterConsArray = new int[2] { 0,0 };
+    public int[] powerConsArray = new int[3] { 7, 2, 0 };
+    public int[] waterConsArray = new int[3] { 0, 0, 0 };
 
     public override void SetMode(int modeIndex)
     {
@@ -22,9 +22,9 @@ public class ConsOnOff : ConsObj {
     {
         base.MoveConsPanel();
 
-        GameObject UIButtonsTwo = consPanel.GetComponent<ConsPanel>().UIButtonsTwo;
-        UIButtonsTwo.SetActive(true);
-        UIButton[] buttons = UIButtonsTwo.GetComponentsInChildren<UIButton>();
+        GameObject UIButtonsThree = consPanel.GetComponent<ConsPanel>().UIButtonsThree;
+        UIButtonsThree.SetActive(true);
+        UIButton[] buttons = UIButtonsThree.GetComponentsInChildren<UIButton>();
         for (int i = 0; i < buttons.Length; i++)
         {
             buttons[i].GetComponentInChildren<Text>().text = ((Mode)i).ToString();
@@ -53,12 +53,14 @@ public class ConsOnOff : ConsObj {
     }
 
     // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void Start()
+    {
+        SetCurrentPowerCons(powerConsArray[(int)currentMode]);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 }

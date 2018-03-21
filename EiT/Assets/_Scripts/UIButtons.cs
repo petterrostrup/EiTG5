@@ -16,8 +16,29 @@ public class UIButtons : MonoBehaviour {
         return choise.ToString();
     }
 
-	// Use this for initialization
-	void Start () {
+    public void UpdateTypeButton(int type)
+    {
+
+    }
+
+    public void UpdateModeButton(int mode)
+    {
+        UIButton[] buttons = gameObject.GetComponentsInChildren<UIButton>();
+        foreach (UIButton button in buttons)
+        {
+            if (button.transform.GetSiblingIndex() == mode)
+            {
+                button.SetSelected();
+            }
+            else
+            {
+                button.SetUnselected();
+            }
+        }
+    }
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	

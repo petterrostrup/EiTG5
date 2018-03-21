@@ -22,7 +22,6 @@ public class LampCover : MonoBehaviour {
     // Use this for initialization
     void Awake () {
         parent = gameObject.transform.parent.GetComponent<ConsLights>();
-        Debug.Log(parent.name);
 	}
 	
 	// Update is called once per frame
