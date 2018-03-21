@@ -8,6 +8,7 @@ public class ConsHUD : MonoBehaviour {
     ConsObj[] consObjects;
     int totalPowerCons = 0;
     Text text;
+    float currentYRotation;
 
 	// Use this for initialization
 	void Start () {
@@ -17,17 +18,18 @@ public class ConsHUD : MonoBehaviour {
     public void UpdateHUDCons()
     {
         totalPowerCons = 0;
+
+        consObjects = GameObject.FindObjectsOfType<ConsObj>();
         foreach (ConsObj obj in consObjects)
         {
             totalPowerCons += obj.GetCurrentPowerCons();
-            Debug.Log(obj.name + obj.GetCurrentPowerCons());
         }
+
         text = gameObject.GetComponentInChildren<Text>();
         text.text = "Power consumption: " + totalPowerCons + "W";
     }
 	
 	// Update is called once per frame
 	void Update () {
-		
 	}
 }

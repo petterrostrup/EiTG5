@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class ConsOnOffStandby : ConsObj {
 
-    private enum Mode { On, Standby, Off }
-    private Mode currentMode = Mode.On;
+    public enum Mode { On, Standby, Off }
+    public Mode currentMode = Mode.On;
     public int[] powerConsArray = new int[3] { 7, 2, 0 };
     public int[] waterConsArray = new int[3] { 0, 0, 0 };
 
@@ -15,6 +15,11 @@ public class ConsOnOffStandby : ConsObj {
         base.SetType(modeIndex);
         currentMode = (Mode)modeIndex;
         SetCurrentPowerCons(powerConsArray[(int)currentMode]);
+    }
+
+    public Mode GetMode()
+    {
+        return currentMode;
     }
 
     // Setting up ConsPanel

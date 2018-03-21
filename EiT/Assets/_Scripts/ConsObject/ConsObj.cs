@@ -68,7 +68,7 @@ public class ConsObj : MonoBehaviour {
         Vector3 newConsPanelPos = objectCenter;
         Quaternion objectRot = gameObject.transform.rotation;
         Vector3 objectScale = gameObject.transform.lossyScale;
-        float consPanelScale = 0.005f;
+        float consPanelScale = 0.01f;
         float consPanelHeightPixels = consPanel.GetComponent<RectTransform>().rect.height;
         float consPanelWidthPixels = consPanel.GetComponent<RectTransform>().rect.width;
         float consPanelHeight = consPanelHeightPixels * consPanelScale;
@@ -92,19 +92,19 @@ public class ConsObj : MonoBehaviour {
                 break;
             case ConsPanelLoc.UpperLeft:
                 newConsPanelPos += consPanel.transform.right * (projectionLeftSignum * (consPanelWidth / 2 + padding) + projectionAlongLeft);
-                newConsPanelPos.y += objectRend.bounds.extents.y - consPanelWidth / 2;
+                newConsPanelPos.y += objectRend.bounds.extents.y - consPanelHeight / 2;
                 break;
             case ConsPanelLoc.UpperRight:
                 newConsPanelPos -= consPanel.transform.right * (projectionRightSignum * (consPanelWidth / 2 + padding) + projectionAlongLeft);
-                newConsPanelPos.y += objectRend.bounds.extents.y - consPanelWidth / 2;
+                newConsPanelPos.y += objectRend.bounds.extents.y - consPanelHeight / 2;
                 break;
             case ConsPanelLoc.LowerRight:
                 newConsPanelPos -= consPanel.transform.right * (projectionRightSignum * (consPanelWidth / 2 + padding) + projectionAlongLeft);
-                newConsPanelPos.y -= objectRend.bounds.extents.y - consPanelWidth / 2;
+                newConsPanelPos.y -= objectRend.bounds.extents.y - consPanelHeight / 2;
                 break;
             case ConsPanelLoc.LowerLeft:
                 newConsPanelPos += consPanel.transform.right * (projectionLeftSignum * (consPanelWidth / 2 + padding) + projectionAlongLeft);
-                newConsPanelPos.y -= objectRend.bounds.extents.y - consPanelWidth / 2;
+                newConsPanelPos.y -= objectRend.bounds.extents.y - consPanelHeight / 2;
                 break;
             default:
                 break;
@@ -156,7 +156,7 @@ public class ConsObj : MonoBehaviour {
     }
 
     void Start () {
-		
+        
 	}
 	
 	// Update is called once per frame
