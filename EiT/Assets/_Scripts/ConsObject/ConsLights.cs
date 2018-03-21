@@ -7,7 +7,7 @@ public class ConsLights : ConsObj {
     // Setup relevant properties
     private enum Mode { On, Off }
     private enum Type { LED, Halogen, CFL, Incandescent}
-    private Mode currentMode = Mode.On;
+    private Mode currentMode = Mode.Off;
     private Type currentType = Type.Incandescent;
     int[,] powerConsArray = new int[2, 4] { 
         { 7, 46, 12, 60 },  //On
@@ -18,9 +18,19 @@ public class ConsLights : ConsObj {
         { 0, 0, 0, 0 }      //Off
         };
 
+    public bool IsOn()
+    {
+        return currentMode == Mode.On;
+    }
+
     // Setup lights
     public Light[] attachedLights;
     private float[] lightIntensities;
+    private int numLamps = 0;
+    private int lightStep = 0;
+    Color curAmbLight;
+    int lightLevel;
+    House house;
 
     // Change of state 
     public override void SetType(int typeIndex)
@@ -96,6 +106,7 @@ public class ConsLights : ConsObj {
             attachedLights[i].intensity = 0;
         }
         SetCurrentPowerCons(powerConsArray[(int)currentMode, (int)currentType]);
+        house.UpdateLight();
     }
 
     private void TurnOn()
@@ -106,6 +117,7 @@ public class ConsLights : ConsObj {
             attachedLights[i].intensity = lightIntensities[i];
         }
         SetCurrentPowerCons(powerConsArray[(int)currentMode, (int)currentType]);
+        house.UpdateLight();
     }
 
     // Used for initialization
@@ -119,5 +131,6 @@ public class ConsLights : ConsObj {
         {
             lightIntensities[i] = attachedLights[i].intensity;
         }
+        house = GameObject.FindObjectOfType<House>();
     }
 }
