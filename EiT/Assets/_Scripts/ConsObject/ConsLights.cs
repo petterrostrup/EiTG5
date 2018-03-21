@@ -7,7 +7,7 @@ public class ConsLights : ConsObj {
     // Setup relevant properties
     private enum Mode { On, Off }
     private enum Type { LED, Halogen, CFL, Incandescent}
-    private Mode currentMode = Mode.Off;
+    private Mode currentMode = Mode.On;
     private Type currentType = Type.Incandescent;
     int[,] powerConsArray = new int[2, 4] { 
         { 7, 46, 12, 60 },  //On
@@ -31,6 +31,9 @@ public class ConsLights : ConsObj {
     Color curAmbLight;
     int lightLevel;
     House house;
+
+    // Lamp cover
+    public LampCover lampCover;
 
     // Change of state 
     public override void SetType(int typeIndex)
@@ -107,6 +110,7 @@ public class ConsLights : ConsObj {
         }
         SetCurrentPowerCons(powerConsArray[(int)currentMode, (int)currentType]);
         house.UpdateLight();
+        lampCover.TurnOff();
     }
 
     private void TurnOn()
@@ -118,6 +122,7 @@ public class ConsLights : ConsObj {
         }
         SetCurrentPowerCons(powerConsArray[(int)currentMode, (int)currentType]);
         house.UpdateLight();
+        lampCover.TurnOn();
     }
 
     // Used for initialization

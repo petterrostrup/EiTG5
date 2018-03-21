@@ -21,12 +21,12 @@ public class House : MonoBehaviour {
 
     // Use this for initialization
     void Awake () {
-        RenderSettings.ambientLight = new Color32(26, 26, 26, 255);
-
         lamps = GameObject.FindObjectsOfType<ConsLights>();
         numLamps = lamps.Length;
         Debug.Log(numLamps);
         lightStep = (int)Mathf.Floor((255 - 26) / 4);
+
+        UpdateLight();
     }
 	
 	// Update is called once per frame
