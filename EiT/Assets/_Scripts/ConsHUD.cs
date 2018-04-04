@@ -26,7 +26,7 @@ public class ConsHUD : MonoBehaviour {
         }
 
         text = gameObject.GetComponentInChildren<Text>();
-        text.text = "Power consumption: " + totalPowerCons + "W";
+        text.text = "Strømforbruk: " + totalPowerCons + "W";
     }
 	
 	// Update is called once per frame

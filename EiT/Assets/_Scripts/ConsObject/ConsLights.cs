@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class ConsLights : ConsObj {
     // Setup relevant properties
     private enum Mode { On, Off }
+    private string[] modeNames = { "På", "Av" };
     private enum Type { LED, Halogen, CFL, Incandescent}
+    private string[] typeNames = { "LED", "Halogen", "Sparepære", "Glødepære" };
     private Mode currentMode = Mode.On;
     private Type currentType = Type.Incandescent;
     int[,] powerConsArray = new int[2, 4] { 
@@ -62,7 +64,7 @@ public class ConsLights : ConsObj {
         UIButton[] buttons = UIButtonsFour.GetComponentsInChildren<UIButton>();
         for (int i = 0; i < buttons.Length; i++)
         {
-            buttons[i].GetComponentInChildren<Text>().text = ((Type)i).ToString();
+            buttons[i].GetComponentInChildren<Text>().text = typeNames[(int)((Type)i)];
             if (i == (int)currentType)
             {
                 buttons[i].SetSelected();
@@ -78,7 +80,7 @@ public class ConsLights : ConsObj {
         buttons = UIButtonsTwo.GetComponentsInChildren<UIButton>();
         for (int i = 0; i < buttons.Length; i++)
         {
-            buttons[i].GetComponentInChildren<Text>().text = ((Mode)i).ToString();
+            buttons[i].GetComponentInChildren<Text>().text = modeNames[(int)((Mode)i)];
             if (i == (int)currentMode)
             {
                 buttons[i].SetSelected();

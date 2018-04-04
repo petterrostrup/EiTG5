@@ -117,6 +117,7 @@ public class ConsObj : MonoBehaviour {
             consPanel.transform.rotation *= Quaternion.Euler(0, 180, 0); //Rotating 180 degrees
         }
         consPanel.GetComponent<ConsPanel>().ResetAll();
+        UpdateUICons();
     }
 
     public void SetupConsPanelCollider()

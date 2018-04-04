@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ConsOnOffStandby : ConsObj {
 
     public enum Mode { On, Standby, Off }
+    private string[] modeNames = { "På", "Standby", "Av" };
     public Mode currentMode = Mode.On;
     public int[] powerConsArray = new int[3] { 7, 2, 0 };
     public int[] waterConsArray = new int[3] { 0, 0, 0 };
@@ -32,7 +33,7 @@ public class ConsOnOffStandby : ConsObj {
         UIButton[] buttons = UIButtonsThree.GetComponentsInChildren<UIButton>();
         for (int i = 0; i < buttons.Length; i++)
         {
-            buttons[i].GetComponentInChildren<Text>().text = ((Mode)i).ToString();
+            buttons[i].GetComponentInChildren<Text>().text = modeNames[(int)((Mode)i)];
             if (i == (int)currentMode)
             {
                 buttons[i].SetSelected();
