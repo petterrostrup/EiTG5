@@ -62,6 +62,29 @@ public class ConsObj : MonoBehaviour {
 
     }
 
+    // Utility functions
+
+    public virtual void SetModeOff()
+    {
+
+    }
+
+    public virtual void SetModeOn()
+    {
+
+    }
+
+    public virtual void SetRandomMode()
+    {
+
+    }
+
+    public virtual void SetRandomType()
+    {
+
+    }
+
+
     public virtual void MoveConsPanel()
     {
         Vector3 objectCenter = objectRend.bounds.center;

@@ -69,4 +69,20 @@ public class ConsOnOffStandby : ConsObj {
     {
 
     }
+
+    // Utility functions
+    public override void SetModeOff()
+    {
+        SetMode((int)Mode.Off);
+    }
+
+    public override void SetModeOn()
+    {
+        SetMode((int)Mode.On);
+    }
+
+    public override void SetRandomMode()
+    {
+        SetMode((int)Mathf.Floor(Random.value * 3));
+    }
 }

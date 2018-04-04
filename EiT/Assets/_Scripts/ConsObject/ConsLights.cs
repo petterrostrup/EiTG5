@@ -155,4 +155,32 @@ public class ConsLights : ConsObj {
     {
         SetCurrentPowerCons(powerConsArray[(int)currentMode, (int)currentType]);
     }
+
+    // Utility functions
+    public override void SetModeOff()
+    {
+        TurnOff();
+    }
+
+    public override void SetModeOn()
+    {
+        TurnOn();
+    }
+
+    public override void SetRandomMode()
+    {
+        if (Random.value > 0.5f)
+        {
+            TurnOn();
+        }
+        else
+        {
+            TurnOff();
+        }
+    }
+
+    public override void SetRandomType()
+    {
+        SetType((int)Mathf.Floor(Random.value * 4));
+    }
 }

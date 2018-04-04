@@ -15,6 +15,11 @@ public class ConsHUD : MonoBehaviour {
         consObjects = GameObject.FindObjectsOfType<ConsObj>();
 	}
 
+    public int GetTotalConsumption()
+    {
+        return totalPowerCons;
+    }
+
     public void UpdateHUDCons()
     {
         totalPowerCons = 0;

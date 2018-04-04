@@ -62,4 +62,27 @@ public class ConsOnOff : ConsObj {
 	void Update () {
 		
 	}
+
+    // Utility functions
+    public override void SetModeOff()
+    {
+        SetMode((int)Mode.Off);
+    }
+
+    public override void SetModeOn()
+    {
+        SetMode((int)Mode.On);
+    }
+
+    public override void SetRandomMode()
+    {
+        if (Random.value > 0.5f)
+        {
+            SetMode((int)Mode.On);
+        }
+        else
+        {
+            SetMode((int)Mode.Off);
+        }
+    }
 }
