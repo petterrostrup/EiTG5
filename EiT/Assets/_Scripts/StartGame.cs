@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class StartGame : MonoBehaviour {
 
-    public enum Init {On, Off, Random };
+    public enum Init {On, Off, Random, NoChange };
     private VRInteractiveItem m_InterItem;
     private int numChallenge = 0;
     Vector3 pos;
@@ -17,9 +17,9 @@ public class StartGame : MonoBehaviour {
     int lowerLimit = -1;
     int upperLimit = -1;
     bool validCons = false;
-    private int[] lowerLimits = { 40, -1, 200 };
-    private int[] upperLimits = { -1, 100, 100 };
-    private Init[] initalValues = { Init.On, Init.Off, Init.Random };
+    private int[] lowerLimits = { 40, -1, 20, 150, 210, 155, 70 }; // Max 263
+    private int[] upperLimits = { -1, 263, 70, 170, 220, 160, 72 }; // Max 263
+    private Init[] initalValues = { Init.On, Init.NoChange, Init.NoChange, Init.NoChange, Init.NoChange, Init.NoChange, Init.NoChange };
     public Text challengeText;
 
     // Use this for initialization
@@ -38,7 +38,7 @@ public class StartGame : MonoBehaviour {
         {
             if ((lowerLimit != -1) && (upperLimit != -1))         // Both upper and lower limits
             {
-                if (consHUD.GetTotalConsumption() <= lowerLimit && consHUD.GetTotalConsumption() >= upperLimit) {
+                if (consHUD.GetTotalConsumption() >= lowerLimit && consHUD.GetTotalConsumption() <= upperLimit) {
                     CompleteChallenge();
                 }
             }
@@ -65,8 +65,18 @@ public class StartGame : MonoBehaviour {
         upperLimit = -1;
         challengeEnabled = false;
 
-        pos.z -= 1000;
-        challengeText.text = "Gratulerer! Du fullførte utfordringen!";
+        if (numChallenge == lowerLimits.Length)
+        {
+            challengeText.text = "Gratulerer! Du klarte alle utfordringene!";
+            pos.y = 1.828999f;
+            gameObject.transform.position = pos;
+            numChallenge = 0;
+        }
+        else
+        {
+            challengeText.text = "Du klarte utfordringen! Ny utfordring begynner om 5 sekunder";
+            Invoke("StartChallenge", 5);
+        }
     }
 
     // Event handlers (can be overridden by the derived classes)
@@ -88,6 +98,8 @@ public class StartGame : MonoBehaviour {
     public virtual void HandleOut() { }
     public virtual void HandleClick() {
         StartChallenge();
+        pos.y = -10;
+        gameObject.transform.position = pos;
     }
 
     public void StartChallenge()
@@ -112,17 +124,19 @@ public class StartGame : MonoBehaviour {
                 case Init.Off:
                     TurnAllOff();
                     break;
-                case Init.Random:
+                case Init.NoChange:
+                    break;
+                case Init.Random: //Maybe remove random completely, and instead make the challenges sequential 
                     do
                     {
                         RandomizeAll();
-                    } while (consHUD.GetTotalConsumption() < lowerLimit);
+                    } while (consHUD.GetTotalConsumption() < lowerLimit && consHUD.GetTotalConsumption() > lowerLimit);
                     break;
                 default:
                     break;
             }
 
-            tempText += "mellom " + lowerLimit + "W og " + upperLimit + "W";
+            tempText += "Mellom " + lowerLimit + "W og " + upperLimit + "W";
 
         }
         else if (lowerLimits[numChallenge] != -1)   // Only lower limit
@@ -147,7 +161,7 @@ public class StartGame : MonoBehaviour {
                     break;
             }
 
-            tempText += "mindre enn " + lowerLimit + "W";
+            tempText += "Maks " + lowerLimit + "W";
         }
         else if (upperLimits[numChallenge] != -1)  // Only upper limit
         {
@@ -171,13 +185,12 @@ public class StartGame : MonoBehaviour {
                     break;
             }
 
-            tempText += "mer enn " + upperLimit + "W";
+            tempText += "Minst " + upperLimit + "W";
         }
         challengeText.text = tempText;
         numChallenge += 1;
         challengeEnabled = true;
-        pos = gameObject.transform.position;
-        pos.z += 1000;
+        pos.y = -10;
     }
 
     private void RandomizeAll()
