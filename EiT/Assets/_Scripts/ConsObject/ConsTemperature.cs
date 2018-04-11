@@ -8,12 +8,12 @@ public class ConsTemperature : ConsObj
     // Setup relevant properties
     private enum Mode { On, Off }
     private string[] modeNames = { "På", "Av" };
-    private enum Type { LED, Halogen, CFL, Incandescent }
-    private string[] typeNames = { "23°", "20°", "18°", "15°" };
+    private enum Type { TwentyFour, TwentyTwo, Twenty, Eighteen }
+    private string[] typeNames = { "24°", "22°", "20°", "18°" };
     private Mode currentMode = Mode.On;
-    private Type currentType = Type.Incandescent;
+    private Type currentType = Type.TwentyFour;
     int[,] powerConsArray = new int[2, 4] {
-        { 7, 46, 12, 60 },  //On
+        { 2500, 2225, 1950, 1675 },  //On
         { 0, 0, 0, 0 }     //Off
         };
     int[,] waterConsArray = new int[2, 4] {

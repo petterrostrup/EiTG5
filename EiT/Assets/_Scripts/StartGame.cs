@@ -72,6 +72,7 @@ public class StartGame : MonoBehaviour {
             pos.y = 1.828999f;
             gameObject.transform.position = pos;
             numChallenge = 0;
+            consBar.HideLimits();
         }
         else
         {
@@ -101,6 +102,7 @@ public class StartGame : MonoBehaviour {
         StartChallenge();
         pos.y = -10;
         gameObject.transform.position = pos;
+        consBar.ShowLimits();
     }
 
     public void StartChallenge()

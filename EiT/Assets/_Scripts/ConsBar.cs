@@ -13,7 +13,7 @@ public class ConsBar : MonoBehaviour {
     ConsObj[] consObjects;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         // Find maximum possible consumption
         consObjects = FindObjectsOfType<ConsObj>();
         foreach (ConsObj obj in consObjects)
@@ -24,7 +24,7 @@ public class ConsBar : MonoBehaviour {
         width = (int)gameObject.GetComponent<RectTransform>().rect.width;
         height = (int)gameObject.GetComponent<RectTransform>().rect.height;
         SetValidRange(0, 263/2);
-
+        HideLimits();
     }
 
     public int GetMaxCons()
@@ -32,18 +32,18 @@ public class ConsBar : MonoBehaviour {
         return maxCons;
     }
 
-    public void Hide()
+    public void HideLimits()
     {
-        Vector3 pos = gameObject.transform.position;
+        Vector3 pos = validRange.localPosition;
         pos.y = 1000;
-        gameObject.transform.position = pos;
+        validRange.localPosition = pos;
     }
 
-    public void Show()
+    public void ShowLimits()
     {
-        Vector3 pos = gameObject.transform.position;
-        pos.y = 190;
-        gameObject.transform.position = pos;
+        Vector3 pos = validRange.localPosition;
+        pos.y = 0;
+        validRange.localPosition = pos;
     }
 
     public void SetValidRange(int lowerLimit, int upperLimit)
