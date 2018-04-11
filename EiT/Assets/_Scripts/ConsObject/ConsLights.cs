@@ -19,6 +19,7 @@ public class ConsLights : ConsObj {
         { 0, 0, 0, 0 },     //On
         { 0, 0, 0, 0 }      //Off
         };
+    int[] yearlyPowerCons = new int[] { 20, 134, 35, 175 };
 
     public bool IsOn()
     {
@@ -57,6 +58,13 @@ public class ConsLights : ConsObj {
     public override int GetMaxCons()
     {
         return MaxValue(powerConsArray);
+    }
+
+    public override void UpdateUICons()
+    {
+        base.UpdateUICons();
+        Text text = consPanel.transform.Find("UICons").transform.Find("Text").GetComponent<Text>();
+        text.text += "\n(Gj.snittlig årsforbruk: " + yearlyPowerCons[(int)currentType] + " kWh)";
     }
 
     // Setting up ConsPanel

@@ -6170,6 +6170,7 @@ MonoBehaviour:
   flipConsPanel: 0
   powerConsArray: 2003000000000000
   waterConsArray: 0000000000000000
+  yearlyPowerCons: 0
 --- !u!64 &473996870
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15217,6 +15218,7 @@ MonoBehaviour:
   flipConsPanel: 0
   powerConsArray: 0700000000000000
   waterConsArray: 0000000000000000
+  yearlyPowerCons: 470
 --- !u!114 &1194186180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19655,6 +19657,7 @@ MonoBehaviour:
   currentMode: 0
   powerConsArray: 020000000100000000000000
   waterConsArray: 000000000000000000000000
+  yearlyPowerCons: 0
   TVimage: {fileID: 1047157993}
 --- !u!114 &1541542881
 MonoBehaviour:
@@ -19865,7 +19868,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Str\xF8mforbruk: 400W\nVannforbruk: 0,2 l/t"
+  m_Text: "Str\xF8mforbruk: 400W\n(Gj.snittlig \xE5rsforbruk: 100kWh)"
 --- !u!222 &1556518524
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -24742,6 +24745,7 @@ MonoBehaviour:
   currentMode: 0
   powerConsArray: 070000000200000000000000
   waterConsArray: 000000000000000000000000
+  yearlyPowerCons: 110
   TVimage: {fileID: 837323973}
 --- !u!114 &1968554947
 MonoBehaviour:

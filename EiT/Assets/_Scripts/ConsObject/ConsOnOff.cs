@@ -10,6 +10,7 @@ public class ConsOnOff : ConsObj {
     private Mode currentMode = Mode.On;
     public int[] powerConsArray = new int[2] { 7,0 };
     public int[] waterConsArray = new int[2] { 0,0 };
+    public int yearlyPowerCons;
 
     public override void SetMode(int modeIndex)
     {
@@ -84,6 +85,13 @@ public class ConsOnOff : ConsObj {
         {
             SetMode((int)Mode.Off);
         }
+    }
+
+    public override void UpdateUICons()
+    {
+        base.UpdateUICons();
+        Text text = consPanel.transform.Find("UICons").transform.Find("Text").GetComponent<Text>();
+        text.text += "\n(Gj.snittlig årsforbruk: " + yearlyPowerCons + " kWh)";
     }
 
     public override int GetMaxCons()

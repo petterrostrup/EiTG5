@@ -37,14 +37,11 @@ public class ConsObj : MonoBehaviour {
         UpdateUICons();
     }
 
-    private void UpdateUICons ()
+    public virtual void UpdateUICons ()
     {
         Text text = consPanel.transform.Find("UICons").transform.Find("Text").GetComponent<Text>();
         text.text = "";
-        if (currentPowerCons != 0)
-        {
-            text.text += "Strømforbruk: " + currentPowerCons.ToString() + " W";
-        }
+        text.text += "Strømforbruk: " + currentPowerCons.ToString() + " W";
         if (currentWaterCons != 0)
         {
             text.text += "Vannforbruk: " + currentWaterCons.ToString() + " l/t";

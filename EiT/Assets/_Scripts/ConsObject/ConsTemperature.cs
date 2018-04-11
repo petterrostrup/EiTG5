@@ -20,6 +20,7 @@ public class ConsTemperature : ConsObj
         { 0, 0, 0, 0 },     //On
         { 0, 0, 0, 0 }      //Off
         };
+    int[] yearlyPowerCons = new int[] { 2500*52*84, 2225 * 52 * 84, 1950 * 52 * 84, 1675 * 52 * 84 };
 
     public bool IsOn()
     {
@@ -158,5 +159,19 @@ public class ConsTemperature : ConsObj
     public override void SetRandomType()
     {
         SetType((int)Mathf.Floor(Random.value * 4));
+    }
+
+    public override void UpdateUICons()
+    {
+        base.UpdateUICons();
+        Text text = consPanel.transform.Find("UICons").transform.Find("Text").GetComponent<Text>();
+        if (yearlyPowerCons[(int)currentType] > 1000)
+        {
+            text.text += "\n(Gj.snittlig årsforbruk: " + yearlyPowerCons[(int)currentType]/1000 + " MWh)";
+        }
+        else
+        {
+            text.text += "\n(Gj.snittlig årsforbruk: " + yearlyPowerCons[(int)currentType] + " kWh)";
+        }
     }
 }
