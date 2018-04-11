@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ConsLights : ConsObj {
+public class ConsTemperature : ConsObj
+{
     // Setup relevant properties
     private enum Mode { On, Off }
     private string[] modeNames = { "På", "Av" };
-    private enum Type { LED, Halogen, CFL, Incandescent}
-    private string[] typeNames = { "LED", "Halogen", "Sparepære", "Glødepære" };
+    private enum Type { LED, Halogen, CFL, Incandescent }
+    private string[] typeNames = { "23°", "20°", "18°", "15°" };
     private Mode currentMode = Mode.On;
     private Type currentType = Type.Incandescent;
-    int[,] powerConsArray = new int[2, 4] { 
+    int[,] powerConsArray = new int[2, 4] {
         { 7, 46, 12, 60 },  //On
         { 0, 0, 0, 0 }     //Off
         };
-    int[,] waterConsArray = new int[2, 4] { 
+    int[,] waterConsArray = new int[2, 4] {
         { 0, 0, 0, 0 },     //On
         { 0, 0, 0, 0 }      //Off
         };
@@ -25,17 +26,7 @@ public class ConsLights : ConsObj {
         return currentMode == Mode.On;
     }
 
-    // Setup lights
-    public Light[] attachedLights;
-    private float[] lightIntensities;
-    private int numLamps = 0;
-    private int lightStep = 0;
-    Color curAmbLight;
-    int lightLevel;
     House house;
-
-    // Lamp cover
-    public LampCover lampCover;
 
     // Change of state 
     public override void SetType(int typeIndex)
@@ -116,42 +107,22 @@ public class ConsLights : ConsObj {
         base.HandleClick();
     }
 
-    // Switching on and off lights
     private void TurnOff()
     {
-        currentMode= Mode.Off;
-        for (int i = 0; i < attachedLights.Length; i++)
-        {
-            attachedLights[i].intensity = 0;
-        }
+        currentMode = Mode.Off;
         SetCurrentPowerCons(powerConsArray[(int)currentMode, (int)currentType]);
-        house.UpdateLight();
-        lampCover.TurnOff();
     }
 
     private void TurnOn()
     {
         currentMode = Mode.On;
-        for (int i = 0; i < attachedLights.Length; i++)
-        {
-            attachedLights[i].intensity = lightIntensities[i];
-        }
         SetCurrentPowerCons(powerConsArray[(int)currentMode, (int)currentType]);
-        house.UpdateLight();
-        lampCover.TurnOn();
     }
 
     // Used for initialization
     public override void Awake()
     {
         base.Awake();
-
-        // Storing initial light intensities
-        lightIntensities = new float[2];
-        for (int i = 0; i < attachedLights.Length; i++)
-        {
-            lightIntensities[i] = attachedLights[i].intensity;
-        }
         house = GameObject.FindObjectOfType<House>();
     }
 

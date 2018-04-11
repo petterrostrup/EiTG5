@@ -85,4 +85,9 @@ public class ConsOnOffStandby : ConsObj {
     {
         SetMode((int)Mathf.Floor(Random.value * 3));
     }
+
+    public override int GetMaxCons()
+    {
+        return MaxValue(powerConsArray);
+    }
 }

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class StartGame : MonoBehaviour {
 
+    public ConsBar consBar;
     public enum Init {On, Off, Random, NoChange };
     private VRInteractiveItem m_InterItem;
     private int numChallenge = 0;
@@ -18,7 +19,7 @@ public class StartGame : MonoBehaviour {
     int upperLimit = -1;
     bool validCons = false;
     private int[] lowerLimits = { 40, -1, 20, 150, 210, 155, 70 }; // Max 263
-    private int[] upperLimits = { -1, 263, 70, 170, 220, 160, 72 }; // Max 263
+    private int[] upperLimits = { -1, 240, 70, 170, 220, 160, 72 }; // Max 263
     private Init[] initalValues = { Init.On, Init.NoChange, Init.NoChange, Init.NoChange, Init.NoChange, Init.NoChange, Init.NoChange };
     public Text challengeText;
 
@@ -137,6 +138,7 @@ public class StartGame : MonoBehaviour {
             }
 
             tempText += "Mellom " + lowerLimit + "W og " + upperLimit + "W";
+            consBar.SetValidRange(lowerLimit, upperLimit);
 
         }
         else if (lowerLimits[numChallenge] != -1)   // Only lower limit
@@ -162,6 +164,7 @@ public class StartGame : MonoBehaviour {
             }
 
             tempText += "Maks " + lowerLimit + "W";
+            consBar.SetValidRange(0, lowerLimit);
         }
         else if (upperLimits[numChallenge] != -1)  // Only upper limit
         {
@@ -186,6 +189,7 @@ public class StartGame : MonoBehaviour {
             }
 
             tempText += "Minst " + upperLimit + "W";
+            consBar.SetValidRange(upperLimit, consBar.GetMaxCons());
         }
         challengeText.text = tempText;
         numChallenge += 1;

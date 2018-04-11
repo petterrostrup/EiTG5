@@ -57,12 +57,47 @@ public class ConsObj : MonoBehaviour {
         
     }
 
+    public virtual int GetMaxCons()
+    {
+        return 0;
+    }
+
     public virtual void SetMode(int modeIndex)
     {
 
     }
 
     // Utility functions
+
+    public int MaxValue(int[] arr){
+        var max = arr[0];
+        for (int i = 0; i < arr.Length; i++)
+        {
+            if (arr[i] > max)
+            {
+                max = arr[i];
+            }
+        }
+        return max;
+    }
+
+    public int MaxValue(int[,] arr)
+    {
+        var max = arr[0,0];
+        int first = arr.GetLength(0);
+        int second = arr.GetLength(1);
+        for (int i = 0; i < first; i++)
+        {
+            for (int j = 0; j < second; j++)
+            {
+                if (arr[i,j] > max)
+                {
+                    max = arr[i,j];
+                }
+            }
+        }
+        return max;
+    }
 
     public virtual void SetModeOff()
     {
@@ -180,8 +215,7 @@ public class ConsObj : MonoBehaviour {
     }
 
     void Start () {
-        
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {

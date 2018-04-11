@@ -9,15 +9,21 @@ public class ConsHUD : MonoBehaviour {
     int totalPowerCons = 0;
     Text text;
     float currentYRotation;
+    ConsBar consBar;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         consObjects = GameObject.FindObjectsOfType<ConsObj>();
 	}
 
     public int GetTotalConsumption()
     {
         return totalPowerCons;
+    }
+
+    void Awake ()
+    {
+        consBar = GameObject.Find("ConsBar").GetComponent<ConsBar>();
     }
 
     public void UpdateHUDCons()
@@ -32,6 +38,7 @@ public class ConsHUD : MonoBehaviour {
 
         text = gameObject.GetComponentInChildren<Text>();
         text.text = "Strømforbruk: " + totalPowerCons + "W";
+        consBar.SetCurrentCons(totalPowerCons);
     }
 	
 	// Update is called once per frame

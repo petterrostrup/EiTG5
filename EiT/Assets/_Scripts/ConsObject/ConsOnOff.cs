@@ -85,4 +85,9 @@ public class ConsOnOff : ConsObj {
             SetMode((int)Mode.Off);
         }
     }
+
+    public override int GetMaxCons()
+    {
+        return MaxValue(powerConsArray);
+    }
 }
