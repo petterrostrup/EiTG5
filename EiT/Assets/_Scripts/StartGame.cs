@@ -18,8 +18,8 @@ public class StartGame : MonoBehaviour {
     int lowerLimit = -1;
     int upperLimit = -1;
     bool validCons = false;
-    private int[] lowerLimits = { 40, -1, 20, 150, 210, 155, 70 }; // Max 263
-    private int[] upperLimits = { -1, 240, 70, 170, 220, 160, 72 }; // Max 263
+    private int[] lowerLimits = { 1000, -1, 3000, 1000, 1700, 2250, 2610 }; // Max 5754
+    private int[] upperLimits = { -1, 5000, 4000, 1500, 1800, 2270, 2612 }; // Max 5754
     private Init[] initalValues = { Init.On, Init.NoChange, Init.NoChange, Init.NoChange, Init.NoChange, Init.NoChange, Init.NoChange };
     public Text challengeText;
 
